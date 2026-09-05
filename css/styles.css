@@ -149,6 +149,23 @@ button { font: inherit; }
   animation: heartbeat 2.4s ease-in-out infinite;
 }
 
+/* Guatemala ❤ Estados Unidos: detalle discreto, sin tarjeta ni fondo,
+   el corazón queda centrado entre ambas banderas gracias al flex. */
+.flags-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 2vw, 10px);
+  margin: 6px 0 0;
+  font-size: clamp(1.05rem, 4vw, 1.35rem);
+  line-height: 1;
+  animation: fadeIn 1s var(--ease-soft) both;
+}
+
+.flags-row .flags-heart {
+  font-size: 0.8em;
+}
+
 /* ---------------------------------------------------------------------
    5. SECCIÓN DE CUENTA REGRESIVA
 --------------------------------------------------------------------- */
@@ -166,6 +183,12 @@ button { font: inherit; }
   transform: translateY(-14px) scale(0.98);
   pointer-events: none;
 }
+
+/* Sin esta regla, el atributo hidden NO oculta la sección: .countdown-section
+   fija display:flex con la misma especificidad que el [hidden] del navegador,
+   y el CSS de autor gana ese empate. Sin este override, la cuenta regresiva
+   (y su contenido) quedaba visible por detrás de la pantalla del encuentro. */
+.countdown-section[hidden] { display: none; }
 
 .hero-subtitle {
   font-family: var(--font-serif);
@@ -271,6 +294,11 @@ button { font: inherit; }
   transform: translateY(-14px) scale(0.98);
   pointer-events: none;
 }
+
+/* Misma razón que en .countdown-section[hidden]: sin este override, la
+   tarjeta del día (con su fotografía) quedaba visible detrás de la pantalla
+   del encuentro — esa era la causa real de la "fotografía duplicada". */
+.daily-section[hidden] { display: none; }
 
 .featured-card {
   background: var(--glass-bg);
