@@ -65,7 +65,7 @@
     //   pedidas así por el usuario; no reemplazar por frases genéricas)
     days: [
       { day: 4, remaining: 7, image: 'images/foto%20dia%20uno%20nueva.jpeg', phrase: '¿Estás más emocionada que cuando miras al perro enano? 😂' },
-      { day: 5, remaining: 6, image: 'images/foto%20dia%202%20nueva.jpeg', phrase: 'Un día menos para volver a encontrarnos.' },
+      { day: 5, remaining: 6, image: 'images/foto%20dia%202%20nueva.jpeg', phrase: 'Un día menos para volver a encontrarnos. Lo malo es que si te sientes triste ya no verás al perro enano. 😢' },
       { day: 6, remaining: 5, image: 'images/foto%203%20nueva.jpeg', phrase: 'Recuerda: ya no verlo. 😂' },
       { day: 7, remaining: 4, image: 'images/juntoo%20a%20foto%204%20.jpeg', phrase: 'Obligatorio bloquear a Juan Carlos. 😂' },
       { day: 8, remaining: 3, image: 'images/segunda%20imagen.jpeg', phrase: 'Ya casi puedo imaginar ese primer abrazo.' },
@@ -125,7 +125,7 @@
      >>> PARA PROBAR OTRO DÍA: cambia solo el número de DIA_PRUEBA. <<<
      >>> ANTES DE PUBLICAR EL SITIO: vuelve a poner MODO_PRUEBA = false. <<<
      ======================================================================= */
-  const MODO_PRUEBA = true;
+  const MODO_PRUEBA = false;
   const DIA_PRUEBA = 11; // 4-10 = días de espera · 11 = día del encuentro
 
   /**
