@@ -7,6 +7,20 @@
   <meta name="description" content="Cuenta regresiva hacia nuestro reencuentro." />
   <meta name="theme-color" content="#0d0b14" />
 
+  <!-- =====================================================
+       PWA — instalación en pantalla de inicio
+       (no altera el diseño ni la lógica de la cuenta regresiva)
+  ====================================================== -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Más cerca" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/pwa.css" />
+
   <!-- Tipografías elegantes (con fallback seguro si no hay internet) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -122,5 +136,6 @@
   </div>
 
   <script src="js/app.js"></script>
+  <script src="js/pwa.js"></script>
 </body>
 </html>
