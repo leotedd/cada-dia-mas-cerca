@@ -593,12 +593,30 @@
    * transitionToMeetingScreen() (la animación real de una sola vez), esto
    * se puede llamar las veces que haga falta: lo usa showMeetingScreenImmediately()
    * y también el clic en el día 11 durante el MODO DE PRUEBA.
+   *
+   * ========================================
+   * MODO DE PRUEBA - DESACTIVAR AL PUBLICAR
+   * ========================================
+   * La línea de tiempo (04-11) vive dentro de .daily-section, junto a la
+   * tarjeta de foto+frase. En producción (MODO_PRUEBA = false) se oculta
+   * TODA la sección al llegar el encuentro (comportamiento real, sin
+   * cambios). Pero en MODO DE PRUEBA eso dejaría sin acceso a la línea de
+   * tiempo mientras se ve la pantalla del encuentro, impidiendo volver a
+   * los demás días — por eso ahí solo se oculta la tarjeta de foto+frase
+   * (.featured-card), y la línea de tiempo se queda visible y clicable.
    */
   function enterMeetingView() {
     dom.countdownSection.classList.remove('is-leaving');
     dom.dailySection.classList.remove('is-leaving');
     dom.countdownSection.hidden = true;
-    dom.dailySection.hidden = true;
+
+    if (MODO_PRUEBA) {
+      dom.dailySection.hidden = false;
+      dom.featuredCard.hidden = true;
+    } else {
+      dom.dailySection.hidden = true;
+    }
+
     revealMeetingScreen();
   }
 
@@ -616,6 +634,7 @@
     dom.meetingScreen.classList.remove('is-entering');
     dom.countdownSection.hidden = false;
     dom.dailySection.hidden = false;
+    dom.featuredCard.hidden = false;
   }
 
   /* =======================================================================
@@ -650,6 +669,27 @@
     buildBackgroundDecor();
     buildTimeline();
 
+    // ========================================
+    // MODO DE PRUEBA - DESACTIVAR AL PUBLICAR
+    // ========================================
+    // DIA_PRUEBA solo decide la vista INICIAL al cargar la página (usando
+    // las mismas funciones que usa el clic en un chip, ver createChip): si
+    // es 11 arranca en la pantalla del encuentro, si no en el día
+    // correspondiente. En cualquier caso el reloj arranca siempre, para que
+    // el contador se mantenga coherente, y la línea de tiempo queda 100%
+    // disponible para navegar manualmente a cualquier otro día después.
+    if (MODO_PRUEBA) {
+      startCountdown();
+      if (testSelectedDay === CONFIG.meeting.day) {
+        enterMeetingView();
+      } else {
+        enterDailyView();
+        selectDay(testSelectedDay);
+      }
+      return;
+    }
+
+    // Comportamiento REAL (MODO_PRUEBA = false): sin cambios.
     const now = getNow();
     if (now >= MEETING_TS) {
       showMeetingScreenImmediately();

@@ -300,6 +300,12 @@ button { font: inherit; }
    del encuentro — esa era la causa real de la "fotografía duplicada". */
 .daily-section[hidden] { display: none; }
 
+/* Misma razón que .countdown-section[hidden] / .daily-section[hidden]:
+   MODO DE PRUEBA oculta solo la tarjeta de foto+frase (para poder seguir
+   viendo y usando la línea de tiempo debajo mientras se está en la
+   pantalla del encuentro); sin este override, "hidden" no la ocultaría. */
+.featured-card[hidden] { display: none; }
+
 .featured-card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
