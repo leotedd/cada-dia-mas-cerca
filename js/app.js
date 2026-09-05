@@ -126,7 +126,7 @@
      >>> ANTES DE PUBLICAR EL SITIO: vuelve a poner MODO_PRUEBA = false. <<<
      ======================================================================= */
   const MODO_PRUEBA = true;
-  const DIA_PRUEBA = 5; // 4-10 = días de espera · 11 = día del encuentro
+  const DIA_PRUEBA = 11; // 4-10 = días de espera · 11 = día del encuentro
 
   /**
    * Timestamp (medianoche, hora Guatemala) del día que se está simulando.
