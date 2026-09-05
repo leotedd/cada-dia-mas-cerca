@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Cada día más cerca ❤️</title>
+  <meta name="description" content="Cuenta regresiva hacia nuestro reencuentro." />
+  <meta name="theme-color" content="#0d0b14" />
+
+  <!-- Tipografías elegantes (con fallback seguro si no hay internet) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Fondo decorativo: estrellas y corazones discretos (generado por JS) -->
+  <div class="bg-decor" id="bg-decor" aria-hidden="true"></div>
+
+  <div class="page">
+
+    <!-- =====================================================
+         MARCA / TÍTULO PERSISTENTE
+    ====================================================== -->
+    <header class="site-header">
+      <h1 class="site-title">
+        <span id="hero-title-text">Cada día más cerca</span>
+        <span class="heart-beat" aria-hidden="true">❤️</span>
+      </h1>
+    </header>
+
+    <!-- =====================================================
+         1. PANTALLA PRINCIPAL — cuenta regresiva
+    ====================================================== -->
+    <section class="countdown-section" id="countdown-section">
+      <p class="hero-subtitle" id="hero-subtitle"></p>
+
+      <div class="countdown" id="countdown" role="timer" aria-label="Cuenta regresiva hacia el reencuentro">
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-days">00</span>
+          <span class="countdown-label">Días</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-hours">00</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-minutes">00</span>
+          <span class="countdown-label">Minutos</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-seconds">00</span>
+          <span class="countdown-label">Segundos</span>
+        </div>
+      </div>
+
+      <p class="countdown-footer" id="countdown-footer"></p>
+
+      <!-- Indicador de progreso hacia el encuentro -->
+      <div class="progress-wrap" aria-hidden="true">
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-label">Camino recorrido hacia el reencuentro</span>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         2 y 4. EXPERIENCIA DIARIA + LÍNEA DE TIEMPO
+    ====================================================== -->
+    <main class="daily-section" id="daily-section">
+
+      <section class="featured-card" id="featured-card">
+        <div class="photo-frame">
+          <img class="featured-photo" id="featured-photo" alt="" />
+          <div class="photo-placeholder" id="featured-placeholder">
+            <span class="placeholder-icon" aria-hidden="true">❤</span>
+            <span class="placeholder-text" id="featured-placeholder-text">Nuestro recuerdo de hoy ❤️</span>
+          </div>
+        </div>
+
+        <p class="featured-eyebrow">Nuestro recuerdo de este día</p>
+        <p class="featured-phrase" id="featured-phrase"></p>
+        <p class="featured-remaining" id="featured-remaining"></p>
+      </section>
+
+      <nav class="timeline" id="timeline" aria-label="Línea de tiempo de la espera"></nav>
+      <p class="timeline-hint" id="timeline-hint" aria-live="polite"></p>
+
+    </main>
+
+    <!-- =====================================================
+         5. DÍA DEL ENCUENTRO
+    ====================================================== -->
+    <section class="meeting-screen" id="meeting-screen" hidden>
+
+      <div class="photo-frame meeting-photo-frame">
+        <img class="meeting-photo" id="meeting-photo" alt="El día de nuestro reencuentro" />
+        <div class="photo-placeholder" id="meeting-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">❤</span>
+          <span class="placeholder-text" id="meeting-placeholder-text"></span>
+        </div>
+      </div>
+
+      <h2 class="meeting-title" id="meeting-title"></h2>
+      <p class="meeting-paragraph" id="meeting-paragraph"></p>
+      <p class="meeting-date" id="meeting-date"></p>
+
+      <div class="meeting-final" id="meeting-final"></div>
+    </section>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
